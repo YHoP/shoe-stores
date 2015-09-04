@@ -52,6 +52,41 @@ public class StoreTest {
   }
 
   @Test
+  public void addBrand_addsBrandToStore() {
+    Brand myBrand = new Brand("Brooks");
+    myBrand.save();
+    Store myStore = new Store("Foot Traffic");
+    myStore.save();
+    myStore.addBrand(myBrand.getId());
+    Brand savedBrand = myStore.getBrands().get(0);
+    assertTrue(myBrand.equals(savedBrand));
+  }
+
+  @Test
+  public void getBrands_returnsAllBrands_List() {
+    Brand myBrand = new Brand("New Balance");
+    myBrand.save();
+    Store myStore = new Store("Fleet Feet Sports PDX");
+    myStore.save();
+    myStore.addBrand(myBrand.getId());
+    List<Brand> savedBrands = myStore.getBrands();
+    assertEquals(savedBrands.size(), 1);
+  }
+
+  @Test
+  public void count_returnCorrectBrandCountFromDatabase_Int() {
+    Store myStore = new Store("Foot Traffic");
+    myStore.save();
+    Brand firstBrand = new Brand("Asics");
+    firstBrand.save();
+    myStore.addBrand(firstBrand.getId());
+    Brand secondBrand = new Brand("Nike");
+    secondBrand.save();
+    myStore.addBrand(secondBrand.getId());
+    assertEquals(2, myStore.count());
+  }
+
+  @Test
   public void delete_deletesAllStoresAndListsAssoicationes() {
     Brand myBrand = new Brand("Saucony");
     myBrand.save();

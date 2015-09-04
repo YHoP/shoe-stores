@@ -56,4 +56,17 @@ public class BrandTest {
     assertEquals(savedStores.size(), 1);
   }
 
+  @Test
+  public void count_returnCorrectStoreCountFromDatabase_Int() {
+    Brand myBrand = new Brand("Asics");
+    myBrand.save();
+    Store firstStore = new Store("Fit Right NW");
+    firstStore.save();
+    myBrand.addStore(firstStore.getId());
+    Store secondStore = new Store("Fleet Feet");
+    secondStore.save();
+    myBrand.addStore(secondStore.getId());
+    assertEquals(2, myBrand.count());
+  }
+
 }
