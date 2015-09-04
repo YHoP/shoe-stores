@@ -1,0 +1,49 @@
+<ul class="nav nav-tabs">
+  <li role="presentation"><a href="/">Shoes Store</a></li>
+  <li role="presentation" class="active"><a href="/brands">Brand</a></li>
+  <li role="presentation"><a href="/stores">Store</a></li>
+</ul>
+<br>
+
+<!-- Current Brand Info -->
+<div class="well">
+  <h2 class="title">$brand.getName()</h2>
+  <h4>Available in $brand.count() stores</h4>
+</div>
+<br>
+<!-- Add Store Form -->
+<div class="col-md-6">
+  <form action="/brands/addStore" method="post">
+    <fieldset>
+      <legend>Add Store</legend>
+      <label for="store_id">Store:</label>
+      <select name="store_id">
+        #foreach ($store in $stores)
+        <option value="$store.getId()">$store.getName()
+        #end
+      </select>
+      <input type="hidden" value="$brand.getId()" name="brand_id">
+      <button type="submit" class="btn btn-info" id="add_store">Add</button>
+    </fieldset>
+  </form>
+</div>
+<br>
+<!-- Store List -->
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Stores</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    #foreach($store in $brand.getStores())
+      <tr>
+        <td><a href="/stores/$store.getId()">$store.getName()</a></td>
+        <td><a href="/stores/$store.getId()" class="btn btn-info">Store Info</a></td>
+        <td><a href="/brands/$brand.getId()/stores/$store.getId()/delete" class="btn btn-danger">Un Sold</a></td>
+      </tr>
+    #end
+  </tbody>
+</table>

@@ -1,0 +1,40 @@
+<ul class="nav nav-tabs">
+  <li role="presentation"><a href="/">Shoes Store</a></li>
+  <li role="presentation"><a href="/brands">Brand</a></li>
+  <li role="presentation" class="active"><a href="/stores">Store</a></li>
+</ul>
+<br>
+<!--Add Store Form-->
+<div class="col-md-6">
+  <form action="/stores/new" method="post">
+    <fieldset>
+      <legend>Add Store</legend>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name">
+      <button type="submit" class="btn btn-info" id="add_store">Add</button>
+    </fieldset>
+  </form>
+</div>
+<br>
+
+<!-- Store List -->
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Stores</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    #foreach ($store in $stores)
+      <tr>
+        <td><a href="/stores/$store.getId()">$store.getName()</a></td>
+        <td><a href="/stores/$store.getId()" class="btn btn-info">Info</a></td>
+        <td><a href="/stores/$store.getId()/update" class="btn btn-warning">Update</a></td>
+        <td><a href="/stores/$store.getId()/delete" class="btn btn-danger">Delete</a></td>
+      </tr>
+    #end
+  </tbody>
+</table>

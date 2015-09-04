@@ -155,6 +155,14 @@ ALTER TABLE ONLY stores ALTER COLUMN id SET DEFAULT nextval('stores_id_seq'::reg
 --
 
 COPY brands (id, name) FROM stdin;
+1	Skora
+2	Scott Sports
+3	Newton
+4	Brooks
+5	New Balance
+6	Asics
+7	Saucony
+8	Nike
 \.
 
 
@@ -162,7 +170,7 @@ COPY brands (id, name) FROM stdin;
 -- Name: brands_id_seq; Type: SEQUENCE SET; Schema: public; Owner: YHoP
 --
 
-SELECT pg_catalog.setval('brands_id_seq', 1, false);
+SELECT pg_catalog.setval('brands_id_seq', 8, true);
 
 
 --
@@ -170,6 +178,16 @@ SELECT pg_catalog.setval('brands_id_seq', 1, false);
 --
 
 COPY brands_stores (id, brand_id, store_id) FROM stdin;
+1	6	1
+2	6	3
+3	6	5
+4	8	2
+6	1	2
+7	1	1
+8	8	3
+9	8	5
+10	3	3
+11	6	3
 \.
 
 
@@ -177,7 +195,7 @@ COPY brands_stores (id, brand_id, store_id) FROM stdin;
 -- Name: brands_stores_id_seq; Type: SEQUENCE SET; Schema: public; Owner: YHoP
 --
 
-SELECT pg_catalog.setval('brands_stores_id_seq', 1, false);
+SELECT pg_catalog.setval('brands_stores_id_seq', 11, true);
 
 
 --
@@ -185,6 +203,10 @@ SELECT pg_catalog.setval('brands_stores_id_seq', 1, false);
 --
 
 COPY stores (id, name) FROM stdin;
+1	Foot Traffic
+3	Portland Running Company
+5	Road Runner Sports
+2	Fleet Feet
 \.
 
 
@@ -192,7 +214,7 @@ COPY stores (id, name) FROM stdin;
 -- Name: stores_id_seq; Type: SEQUENCE SET; Schema: public; Owner: YHoP
 --
 
-SELECT pg_catalog.setval('stores_id_seq', 1, false);
+SELECT pg_catalog.setval('stores_id_seq', 5, true);
 
 
 --

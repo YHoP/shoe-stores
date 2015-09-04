@@ -1,0 +1,21 @@
+<ul class="nav nav-tabs">
+  <li role="presentation"><a href="/">Shoes Store</a></li>
+  <li role="presentation"><a href="/brands">Brand</a></li>
+  <li role="presentation" class="active"><a href="/stores">Store</a></li>
+</ul>
+<br>
+<h3>$store.getName()</h3>
+<br>
+<!--Add Brand to Store Form-->
+<div class="col-md-6">
+<form action="/stores/$store.getId()/update" method="post">
+  <fieldset>
+    <legend>Update Store</legend>
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="$store.getName()">
+      </div>
+      <button type="submit" class="btn btn-info" id="update_name">Update</button>
+  </fieldset>
+</form>
+<hr />

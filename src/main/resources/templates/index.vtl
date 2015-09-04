@@ -1,0 +1,41 @@
+<ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="/">Shoes Store</a></li>
+  <li role="presentation"><a href="/brands">Brand</a></li>
+  <li role="presentation"><a href="/stores">Store</a></li>
+</ul>
+<br>
+<!-- Brands -->
+<div class="col-md-6">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Brands</th>
+    </tr>
+  </thead>
+  <tbody>
+    #foreach ($brand in $brands)
+      <tr>
+        <td>$brand.getName()</td>
+      </tr>
+    #end
+  </tbody>
+</table>
+</div>
+
+<!-- Stores -->
+<div class="col-md-6">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Stores</th>
+    </tr>
+  </thead>
+  <tbody>
+    #foreach ($store in $stores)
+      <tr>
+        <td>$store.getName()</td>
+      </tr>
+    #end
+  </tbody>
+</table>
+</div>

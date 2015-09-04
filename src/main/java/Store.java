@@ -67,10 +67,10 @@ public class Store {
 
   public void addBrand(int brand_id) {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO brands_stores (brand_id, store_id) VALUES (:brand_id, :id)";
+      String sql = "INSERT INTO brands_stores (brand_id, store_id) VALUES (:brand_id, :store_id)";
       con.createQuery(sql)
         .addParameter("brand_id", brand_id)
-        .addParameter("id", id)
+        .addParameter("store_id", id)
         .executeUpdate();
     }
   }
@@ -102,6 +102,15 @@ public class Store {
       String joinsql = "DELETE FROM brands_stores where store_id =:id";
       con.createQuery(joinsql)
         .addParameter("id", id)
+        .executeUpdate();
+    }
+  }
+
+  public void deleteCarryBrand(int brand_id) {
+    try(Connection con = DB.sql2o.open()) {
+      String joinsql = "DELETE FROM brands_stores where brand_id =:brand_id";
+      con.createQuery(joinsql)
+        .addParameter("brand_id", brand_id)
         .executeUpdate();
     }
   }
