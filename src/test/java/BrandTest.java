@@ -69,4 +69,15 @@ public class BrandTest {
     assertEquals(2, myBrand.count());
   }
 
+  @Test
+  public void delete_deleteSoldStoreFromDatabase() {
+    Brand myBrand = new Brand("Asics");
+    myBrand.save();
+    Store myStore = new Store("Fit Right NW");
+    myStore.save();
+    myBrand.addStore(myStore.getId());
+    myBrand.deleteSoldStore(myStore.getId());
+    assertEquals(0, myBrand.count());
+  }
+
 }

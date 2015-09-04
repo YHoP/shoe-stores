@@ -97,4 +97,15 @@ public class StoreTest {
     assertEquals(myBrand.getStores().size(), 0);
   }
 
+  @Test
+  public void delete_deleteCarryBrandFromDatabase() {
+    Brand myBrand = new Brand("Asics");
+    myBrand.save();
+    Store myStore = new Store("Fit Right NW");
+    myStore.save();
+    myStore.addBrand(myBrand.getId());
+    myStore.deleteCarryBrand(myBrand.getId());
+    assertEquals(0, myStore.count());
+  }
+
 }

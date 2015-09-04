@@ -15,7 +15,7 @@
   <tbody>
     #foreach ($brand in $brands)
       <tr>
-        <td>$brand.getName()</td>
+        <td><a href="/brands/$brand.getId()">$brand.getName()</a></td>
       </tr>
     #end
   </tbody>
@@ -33,7 +33,7 @@
   <tbody>
     #foreach ($store in $stores)
       <tr>
-        <td>$store.getName()</td>
+        <td><a href="/stores/$store.getId()">$store.getName()</a></td>
       </tr>
     #end
   </tbody>
