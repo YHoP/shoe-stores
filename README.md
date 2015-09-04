@@ -17,6 +17,9 @@ Make a Store class and a Brand class.<br>
 5. CREATE TABLE brands_stores (id serial PRIMARY KEY, brand_id int, store_id int);
 6. CREATE DATABASE shoes_test WITH TEMPLATE shoes;
 
+<br>
+![alt tag](https://raw.githubusercontent.com/YHoP/shoe-stores/master/src/main/resources/public/img/sql-table-design.png)
+
 ### Setup instructions -<br>
 1. Download this repository files to your computer.<br>
 2. Navigate to the folder directory.<br>
