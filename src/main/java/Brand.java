@@ -18,8 +18,8 @@ public class Brand {
   }
 
   @Override
-  public boolean equals(Object otherStore){
-    if (!(otherStore instanceof Brand)) {
+  public boolean equals(Object otherBrand){
+    if (!(otherBrand instanceof Brand)) {
       return false;
     } else {
       Brand newBrand = (Brand) otherBrand;
@@ -67,7 +67,7 @@ public class Brand {
 
   public List<Store> getStores() {
     try(Connection con = DB.sql2o.open()){
-      String sql = "SELECT store.* FROM brands JOIN brands_stores ON (brands.id = brands_stores.brand_id) JOIN stores ON (brands_stores.store_id = stores.id) WHERE brands.id =:id ORDER BY name";
+      String sql = "SELECT stores.* FROM brands JOIN brands_stores ON (brands.id = brands_stores.brand_id) JOIN stores ON (brands_stores.store_id = stores.id) WHERE brands.id =:id ORDER BY name";
       return con.createQuery(sql)
         .addParameter("id", id)
         .executeAndFetch(Store.class);
